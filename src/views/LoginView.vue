@@ -92,7 +92,7 @@ async function handleSubmit() {
   submitting.value = true
   try {
     const res = await axios.post(
-      'http://localhost:8080/auth/login',
+      '/api/auth/login',
       { email: form.email, password: form.password },
       { withCredentials: true },
     )
@@ -162,7 +162,7 @@ onMounted(() => {
         try {
           // 백엔드로 토큰 전달
           const res = await axios.post(
-            'http://localhost:8080/auth/social/google', 
+            '/api/auth/social/google', 
             { idToken: response.credential }, 
             { withCredentials: true }
           )

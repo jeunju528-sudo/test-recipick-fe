@@ -73,7 +73,7 @@ onMounted(async () => {
   await loadWeeklyDiet()
 
   // 1. 내 냉장고 재료 조회
-  const fridgeRes = await axios.get('http://localhost:8080/refrige/fridgedata', {
+  const fridgeRes = await axios.get('/api/refrige/fridgedata', {
     params: { user_id: authStore.user.userId },
   })
 
@@ -88,7 +88,7 @@ onMounted(async () => {
 
 
   // 2. 그 재료로 레시피 매칭 조회
-  const matchRes = await axios.post('http://localhost:8080/refrige/recommand', {
+  const matchRes = await axios.post('/api/refrige/recommand', {
     ingredients: fridgeIngredients.value,
     sort: 'match',
   })
@@ -125,7 +125,7 @@ async function loadWeeklyDiet() {
 
   for (const key of monthKeys) {
     const [year, month] = key.split('-')
-    const res = await axios.get('http://localhost:8080/calendar/list', {
+    const res = await axios.get('/api/calendar/list', {
       params: { year, month: String(month).padStart(2, '0') },
     })
     for (const it of res.data) {
@@ -147,7 +147,7 @@ async function loadWeeklyDiet() {
 
 onMounted(async () => {
   // 조회수(hit) 기준 정렬된 레시피 목록에서 상위 4개만 노출
-  const res = await axios.get('http://localhost:8080/recipe/list', {
+  const res = await axios.get('/api/recipe/list', {
     params: {
       page: 1,
       sort: 'hit',

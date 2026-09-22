@@ -156,7 +156,7 @@ const replyCount = ref(0)
 const loadProfile = async () => {
   try {
     const res = await axios.get(
-      'http://localhost:8080/mypage/profile'
+      '/api/mypage/profile'
     )
 
     profileNickname.value = res.data.nickname || ''
@@ -174,7 +174,7 @@ const loadProfile = async () => {
 const loadCounts = async () => {
   try {
     const res = await axios.get(
-      'http://localhost:8080/mypage/main_count'
+      '/api/mypage/main_count'
     )
 
     console.log('마이페이지 카운트:', res.data)

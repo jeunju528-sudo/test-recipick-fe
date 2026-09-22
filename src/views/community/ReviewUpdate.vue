@@ -177,7 +177,7 @@ const removeImage = () => {
 const loadReview = async () => {
   try {
     const res = await axios.get(
-      'http://localhost:8080/review/detail',
+      '/api/review/detail',
       { params: { id: reviewId } }
     )
 
@@ -252,7 +252,7 @@ const updateReview = async () => {
     isSubmitting.value = true
 
     await axios.put(
-      'http://localhost:8080/review/update',
+      '/api/review/update',
       formData
     )
 

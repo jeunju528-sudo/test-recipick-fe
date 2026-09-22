@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia'
 import axios from 'axios'
 
-const API_BASE = 'http://localhost:8080'
+const API_BASE = '/api'
 
 // 앱 최초 로딩 시 재발급+me 복구 플로우를 1회만 실행하기 위한 캐시.
 let restorePromise = null

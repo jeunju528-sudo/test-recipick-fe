@@ -17,7 +17,7 @@ export const recipeDetailStore = defineStore('detail', {
   actions: {
     async recipeDetailData(no) {
       const authStore = useAuthStore()
-      const res = await axios.get('http://localhost:8080/recipe/detail', {
+      const res = await axios.get('/api/recipe/detail', {
         params: {
           rcp_seq: no,
           user_id: authStore.user?.userId
@@ -33,7 +33,7 @@ export const recipeDetailStore = defineStore('detail', {
     },
 
     async recipeCookie() {
-      const res = await axios.get('http://localhost:8080/recipe/cookie', {
+      const res = await axios.get('/api/recipe/cookie', {
         params: {},
         withCredentials: true,
       })
@@ -42,7 +42,7 @@ export const recipeDetailStore = defineStore('detail', {
     },
 
     async recipeDetailSub(no) {
-      const res = await axios.get('http://localhost:8080/recipe/detail_sub', {
+      const res = await axios.get('/api/recipe/detail_sub', {
         params: {
           rcp_seq: no,
         },
@@ -54,7 +54,7 @@ export const recipeDetailStore = defineStore('detail', {
     },
 
     async recipeLikeClick(no, type) {
-      await axios.get('http://localhost:8080/recipe/interaction', {
+      await axios.get('/api/recipe/interaction', {
         params: {
           rcp_seq: no,
           type: type,

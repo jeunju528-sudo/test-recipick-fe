@@ -93,7 +93,7 @@ async function handleDelete() {
   if (!ok) return
 
   try {
-    const res = await axios.post('http://localhost:8080/recipe/delete', null, {
+    const res = await axios.post('/api/recipe/delete', null, {
       params: { rcp_seq: props.recipe.rcp_seq }
     })
 

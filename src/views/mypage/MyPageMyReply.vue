@@ -102,7 +102,7 @@ const loadReplies = async (pageinfo = 1) => {
 
   try {
     const res = await axios.get(
-      'http://localhost:8080/mypage/replies',
+      '/api/mypage/replies',
       {
         params: {
           page: targetPage,
@@ -138,7 +138,7 @@ const deleteSelected = async () => {
 
   try {
     await axios.delete(
-      'http://localhost:8080/mypage/replies',
+      '/api/mypage/replies',
       {
         data: selectedReplyIds.value,
       }

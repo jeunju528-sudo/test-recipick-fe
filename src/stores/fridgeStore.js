@@ -23,7 +23,7 @@ export const useFridgeStore = defineStore('fridge', () => {
   // ── actions ──
 
   async function searchIngredients(keyword) {
-    const res = await axios.get('http://localhost:8080/ingredients/list', {
+    const res = await axios.get('/api/ingredients/list', {
       params: { keyword }
     })
     ingredients.value = res.data
@@ -36,14 +36,14 @@ export const useFridgeStore = defineStore('fridge', () => {
 
   // 추가 재료 검색 (새 action, 별도 state에 저장)
   async function searchExtraIngredients(keyword) {
-    const res = await axios.get('http://localhost:8080/ingredients/list', {
+    const res = await axios.get('/api/ingredients/list', {
       params: { keyword }
     })
     extraIngredients.value = res.data
   }
 
   async function loadMyFridge(user_id) {
-    const res = await axios.get('http://localhost:8080/refrige/fridgedata', {
+    const res = await axios.get('/api/refrige/fridgedata', {
       params: { user_id }
     })
     myFridgeData.value = res.data
@@ -51,13 +51,13 @@ export const useFridgeStore = defineStore('fridge', () => {
   }
 
   async function saveFridge(volist) {
-    await axios.post('http://localhost:8080/refrige/register', volist)
+    await axios.post('/api/refrige/register', volist)
   }
 
   async function loadMatches(ingredientNames, sort = 'match') {
     loading.value = true
     try {
-      const response = await axios.post('http://localhost:8080/refrige/recommand', {      
+      const response = await axios.post('/api/refrige/recommand', {      
         ingredients: ingredientNames,
         sort: sort,      
       })
@@ -102,7 +102,7 @@ export const useFridgeStore = defineStore('fridge', () => {
   async function loadRecipeDetail(rcp_seq) {
     console.log('스토어로 들어온 rcp_seq:', rcp_seq); // 값이 출력되는지 확인!
   if (!rcp_seq) return;
-  const res = await axios.get(`http://localhost:8080/refrige/recipe/${rcp_seq}`)
+  const res = await axios.get(`/api/refrige/recipe/${rcp_seq}`)
   recipeDetail.value = res.data
 }
 

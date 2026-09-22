@@ -9,7 +9,7 @@ export const chatStore = defineStore('chat', {
   }),
   actions: {
     async chatRoomCrerate(id, no) {
-      const res = await axios.get('http://localhost:8080/chat/create', {
+      const res = await axios.get('/api/chat/create', {
         params: {
           user_id2: id,
           recipe_id: no,
@@ -20,7 +20,7 @@ export const chatStore = defineStore('chat', {
     },
 
     async chatRoomList() {
-      const res = await axios.get('http://localhost:8080/chat/room_list', {
+      const res = await axios.get('/api/chat/room_list', {
         params: {},
         withCredentials: true,
       })
@@ -28,7 +28,7 @@ export const chatStore = defineStore('chat', {
     },
 
     async chatMessageList(no) {
-      const res = await axios.get('http://localhost:8080/chat/message_list', {
+      const res = await axios.get('/api/chat/message_list', {
         params: {
           room_id: no,
         },

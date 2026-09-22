@@ -12,7 +12,7 @@ export const myListStore = defineStore('myList', {
   }),
   actions: {
     async myListData(page, type) {
-      const res = await axios.get('http://localhost:8080/recipe/my-list', {
+      const res = await axios.get('/api/recipe/my-list', {
         params: {
           user_id: 2,
           page: page,

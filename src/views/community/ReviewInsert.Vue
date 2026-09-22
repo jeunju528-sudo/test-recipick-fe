@@ -130,7 +130,7 @@ const loadRecipe = async () => {
     return
   } 
   const res = await axios.get(
-    'http://localhost:8080/recipe/detail',
+    '/api/recipe/detail',
     {
       params: {
         rcp_seq: rcp_seq
@@ -242,7 +242,7 @@ const submitReview = async () => {
     isSubmitting.value = true
 
     await axios.post(
-      'http://localhost:8080/review/insert',
+      '/api/review/insert',
       formData
     )
 

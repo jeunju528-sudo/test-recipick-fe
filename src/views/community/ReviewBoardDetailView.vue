@@ -298,7 +298,7 @@ const isOwner = computed(() => {
 const fetchDetail = async (targetId = route.params.id) => {
   try {
     const res = await axios.get(
-      'http://localhost:8080/review/detail',
+      '/api/review/detail',
       {
         params: {
           id: targetId
@@ -353,7 +353,7 @@ const handleDelete = async () => {
 
   try {
     await axios.delete(
-      'http://localhost:8080/review/delete',
+      '/api/review/delete',
       {
         params: {
           id: reviewId.value
@@ -396,7 +396,7 @@ const submitReply = async () => {
 
   try {
     await axios.post(
-      'http://localhost:8080/review/reply/insert',
+      '/api/review/reply/insert',
       {
         review_board_id: reviewId.value,
         content: newReplyContent.value
@@ -418,7 +418,7 @@ const deleteReply = async (replyId) => {
 
   try {
     await axios.delete(
-      'http://localhost:8080/review/reply/delete',
+      '/api/review/reply/delete',
       {
         params: {
           id: replyId

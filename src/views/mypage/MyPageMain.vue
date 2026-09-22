@@ -123,7 +123,7 @@ const myReplies = ref([])
 
 const loadMyRecipes = async () => {
   try {
-    const res = await axios.get('http://localhost:8080/recipe/mylist', {
+    const res = await axios.get('/api/recipe/mylist', {
       params: { page: 1 }
     })
     myRecipes.value = res.data.list.slice(0, 3)
@@ -134,7 +134,7 @@ const loadMyRecipes = async () => {
 
 const loadLikedRecipes = async () => {
   try {
-    const res = await axios.get('http://localhost:8080/recipe/my-list', {
+    const res = await axios.get('/api/recipe/my-list', {
       params: {
         page: 1,
         type: 'like'
@@ -148,7 +148,7 @@ const loadLikedRecipes = async () => {
 
 const loadBookmarkedRecipes = async () => {
   try {
-    const res = await axios.get('http://localhost:8080/recipe/my-list', {
+    const res = await axios.get('/api/recipe/my-list', {
       params: {
         page: 1,
         type: 'mark'
@@ -162,7 +162,7 @@ const loadBookmarkedRecipes = async () => {
 
 const loadMyReviews = async () => {
   try {
-    const res = await axios.get('http://localhost:8080/mypage/reviews', {
+    const res = await axios.get('/api/mypage/reviews', {
       params: { page: 1 }
     })
     myReviews.value = res.data.list.slice(0, 5)
@@ -173,7 +173,7 @@ const loadMyReviews = async () => {
 
 const loadMyReplies = async () => {
   try {
-    const res = await axios.get('http://localhost:8080/mypage/replies', {
+    const res = await axios.get('/api/mypage/replies', {
       params: { page: 1 }
     })
     myReplies.value = res.data.list.slice(0, 5)

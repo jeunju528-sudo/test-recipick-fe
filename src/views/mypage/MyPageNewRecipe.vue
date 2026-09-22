@@ -375,13 +375,13 @@ if (validIngredients.length === 0) {
     if (isEdit.value) {
       // 수정 모드
       formData.append('rcp_seq', rcpSeq.value)
-      await axios.post('http://localhost:8080/recipe/update', formData, {
+      await axios.post('/api/recipe/update', formData, {
         params: { rcp_seq: rcpSeq.value }
       })
       router.push(`/recipes/${rcpSeq.value}`)
     } else {
       // 등록 모드
-      const res = await axios.post('http://localhost:8080/recipe/insert', formData)
+      const res = await axios.post('/api/recipe/insert', formData)
       const newRcpSeq = res.data.rcp_seq
       router.push(`/recipes/${newRcpSeq}`)
     }

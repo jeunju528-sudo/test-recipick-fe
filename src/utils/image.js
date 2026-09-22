@@ -10,5 +10,5 @@ export function getImageUrl(filename) {
   }
 
   // 그 외엔 파일명만 있는 것으로 보고 우리 서버 주소를 붙임
-  return `http://localhost:8080/uploads/${filename}`
+  return `/api/uploads/${filename}`
 }

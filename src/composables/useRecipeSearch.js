@@ -1,7 +1,7 @@
 // composables/useRecipeSearch.js
 import { ref } from "vue";
 import axios from "axios";
-const API_BASE = "http://localhost:8080";
+const API_BASE = "/api";
 
 export function useRecipeSearch(userId) { // 어디서든 임포트 가능하게 설정
   const keyword = ref("");  // 검색창에 입력 텍스트

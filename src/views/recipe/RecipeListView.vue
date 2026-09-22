@@ -135,7 +135,7 @@ async function loadRecipes(pageinfo = 1) {
 
   if (keyword.value.trim() !== '' && selected.value !== null) {
     // 검색어 + 카테고리 둘 다 있으면 통합 필터 API 호출
-    res = await axios.get('http://localhost:8080/recipe/filter', {
+    res = await axios.get('/api/recipe/filter', {
       params: {
         main_category: selected.value, // 선택된 카테고리 값
         keyword: keyword.value,        // 검색창에 입력한 검색어
@@ -145,7 +145,7 @@ async function loadRecipes(pageinfo = 1) {
     })
   } else if (keyword.value.trim() !== '') {
     // 검색어만 있으면 키워드 검색
-    res = await axios.get('http://localhost:8080/recipe/keyword', {
+    res = await axios.get('/api/recipe/keyword', {
       params: {
         keyword: keyword.value,   // 검색창에 입력한 검색어
         page: targetPage,         // 몇 페이지를 조회할지
@@ -154,7 +154,7 @@ async function loadRecipes(pageinfo = 1) {
     })
   } else if (selected.value === null) {    // '전체' 카테고리 선택 시: /recipe/list 로 요청
     // sort.value에는 SortSelect에서 고른 'latest' 또는 'hit'이 들어있음
-    res = await axios.get('http://localhost:8080/recipe/list', {
+    res = await axios.get('/api/recipe/list', {
       params: {
         page: targetPage,   // 몇 페이지를 조회할지
         sort: sort.value    // 정렬 기준 (최신순 / 인기순)
@@ -162,7 +162,7 @@ async function loadRecipes(pageinfo = 1) {
     })
   } else {
     // 특정 카테고리 선택 시: /recipe/category 로 요청
-    res = await axios.get('http://localhost:8080/recipe/category', {
+    res = await axios.get('/api/recipe/category', {
       params: {
         main_category: selected.value, // 선택된 카테고리 값 (예: '반찬')
         page: targetPage,              // 몇 페이지를 조회할지

@@ -53,7 +53,7 @@ const loadReviews = async (pageinfo = 1) => {
   const targetPage = typeof pageinfo === 'number' ? pageinfo : 1
 
   try {
-    const res = await axios.get('http://localhost:8080/mypage/reviews', {
+    const res = await axios.get('/api/mypage/reviews', {
       params: {
         page: targetPage,
       },
@@ -79,7 +79,7 @@ const deleteReview = async (reviewId) => {
 
   try {
     await axios.delete(
-      `http://localhost:8080/mypage/reviews/${reviewId}`
+      `/api/mypage/reviews/${reviewId}`
     )
 
     alert('리뷰가 삭제되었습니다.')

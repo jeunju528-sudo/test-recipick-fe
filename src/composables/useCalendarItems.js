@@ -3,7 +3,7 @@ import { ref, computed } from "vue";
 import axios from "axios";
 // ref = 값 하나 반응형
 // computed = 다른 반응형 값을 가지고 계산된값 자동 생성
-const API_BASE = "http://localhost:8080";
+const API_BASE = "/api";
 
 // 캘린더 고정값들
 const MEAL_TYPES = ["아침", "점심", "저녁"];

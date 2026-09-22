@@ -114,7 +114,7 @@ function initSpy() {
 
 async function loadDetailCuration(id) {
   try {
-    const res = await axios.get(`http://localhost:8080/community/curation/${id}`)
+    const res = await axios.get(`/api/community/curation/${id}`)
     curation.value = res.data
     if (res.data.group?.length) activeIng.value = res.data.group[0].ingredient_id
   } catch (error) {

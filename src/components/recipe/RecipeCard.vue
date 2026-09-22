@@ -71,7 +71,7 @@ const likeCount = ref(props.recipe.like_count ?? 0)
 const TEMP_USER_ID = 1
 
 async function toggleLike() {
-  const res = await axios.post('http://localhost:8080/recipe/like', null, {
+  const res = await axios.post('/api/recipe/like', null, {
     params: {
       user_id: TEMP_USER_ID,
       recipe_id: props.recipe.rcp_seq,

@@ -111,7 +111,7 @@ function goDetail(id) {
 
 async function loadCuration(pageInfo) {
   try {
-    const res = await axios.get('http://localhost:8080/community/curation', {
+    const res = await axios.get('/api/community/curation', {
       params: { page: pageInfo },
     })
     curations.value = res.data.list

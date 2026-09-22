@@ -187,7 +187,9 @@ const connectWebSocket = async () => {
   }
 
   client.value = new Client({
-    brokerURL: 'ws://localhost:8080/chat-ws',
+    
+    brokerURL: `${location.protocol === 'https:' ? 'wss' : 'ws'}://${location.host}/chat-ws`,
+    
     reconnectDelay: 5000,
 
     onConnect: () => {

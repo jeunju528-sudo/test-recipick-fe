@@ -138,7 +138,7 @@ const fetchRecipes = async (pageNum = 1) => {
 
   try {
     const res = await axios.get(
-      'http://localhost:8080/review/recipe/search',
+      '/api/review/recipe/search',
       {
         params: {
           keyword: keyword.value.trim(),

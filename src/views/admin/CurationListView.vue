@@ -63,7 +63,7 @@ const page = ref({
 
 async function loadCuration(pageInfo) {
   try {
-    const res = await axios.get('http://localhost:8080/admin/curation', {
+    const res = await axios.get('/api/admin/curation', {
       params:{
         page:pageInfo
       }

@@ -209,7 +209,7 @@ const PASSWORD_PATTERN =
 const loadProfile = async () => {
   try {
     const res = await axios.get(
-      'http://localhost:8080/mypage/profile',
+      '/api/mypage/profile',
       { withCredentials: true }
     )
 
@@ -289,7 +289,7 @@ const checkNickname = async () => {
 
   try {
     const res = await axios.get(
-      'http://localhost:8080/auth/nickname/check',
+      '/api/auth/nickname/check',
       {
         params: { 
           nickname: value
@@ -353,7 +353,7 @@ const saveProfile = async () => {
 
   try {
     await axios.put(
-      'http://localhost:8080/mypage/profile',
+      '/api/mypage/profile',
       formData,
       { withCredentials: true }
     )
@@ -382,7 +382,7 @@ const saveProfile = async () => {
 
 const checkLocalAccount = async () => {
   try {
-    const res = await axios.get('http://localhost:8080/mypage/has-local-account', {
+    const res = await axios.get('/api/mypage/has-local-account', {
       withCredentials: true
     })
     hasLocalAccount.value = res.data // 백엔드에서 true/false 반환
@@ -422,7 +422,7 @@ const savePassword = async () => {
 
   try {
     await axios.put(
-      'http://localhost:8080/mypage/password',
+      '/api/mypage/password',
       {
         currentPassword: currentPassword.value,
         newPassword: newPassword.value,

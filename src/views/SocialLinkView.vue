@@ -94,7 +94,7 @@ const handleLink = async () => {
 
   try {
     const response = await axios.post(
-      'http://localhost:8080/auth/social/google/link',
+      '/api/auth/social/google/link',
       {
         idToken: idToken.value,
         password: password.value

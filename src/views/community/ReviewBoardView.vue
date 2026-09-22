@@ -81,7 +81,7 @@ const keyword = ref('')
 
 const fetchReviews = async (pageNum = 1) => {
   try {
-    const res = await axios.get('http://localhost:8080/review/list', {
+    const res = await axios.get('/api/review/list', {
       params: { 
         page: pageNum,
         type: searchType.value,

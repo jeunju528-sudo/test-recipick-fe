@@ -61,7 +61,7 @@ const loading = ref(true)   // 추가: 초기값 true
 async function loadDetailCuration(id){
   // url에 값을 그냥 붙여서 보낼 때는 백틱(`) 을 붙여야하고 "" 로 감싸면 그냥 문자열이라 안된다
   try {
-    const res = await axios.get(`http://localhost:8080/admin/curation/${id}`)
+    const res = await axios.get(`/api/admin/curation/${id}`)
     curation.value = res.data
   } catch (error) {
     console.error('상세보기 조회 실패',error)
@@ -84,7 +84,7 @@ async function handleDelete(id) {
   }
   // axios는 결과가 즉시 오지 않는 비동기 작업이라, await 없이는 데이터가 도착하기 전에 다음 줄이 실행되어버림!
   try {
-    await axios.delete(`http://localhost:8080/admin/curation/${id}`)
+    await axios.delete(`/api/admin/curation/${id}`)
     router.push(`/admin/curations`)
   } catch (error) {
     console.error('삭제 처리 실패', error)

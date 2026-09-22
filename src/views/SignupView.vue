@@ -152,7 +152,7 @@ async function checkEmailDuplicate() {
   emailCheck.message = ''
 
   try {
-    const res = await axios.get('http://localhost:8080/auth/email/check', {
+    const res = await axios.get('/api/auth/email/check', {
       params: { email: form.email },
       withCredentials: true,
     })
@@ -228,7 +228,7 @@ async function checkNicknameDuplicate(nickname) {
   nicknameCheck.message = ''
 
   try {
-    const res = await axios.get('http://localhost:8080/auth/nickname/check', {
+    const res = await axios.get('/api/auth/nickname/check', {
       params: { nickname },
       withCredentials: true,
     })
@@ -287,7 +287,7 @@ async function handleSubmit() {
   submitting.value = true
   try {
     await axios.post(
-      'http://localhost:8080/auth/signup',
+      '/api/auth/signup',
       {
         email: form.email,
         password: form.password,

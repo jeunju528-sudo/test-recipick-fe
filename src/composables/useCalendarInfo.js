@@ -1,7 +1,7 @@
 import {ref} from "vue";
 import axios from "axios";
 
-const API_BASE = "http://localhost:8080";
+const API_BASE = "/api";
 
 export function useCalendarInfo(userId,year,month){
     const info = ref(null);

@@ -61,7 +61,7 @@ const page = ref({
 async function loadMyRecipeList(targetPage = 1) {
   loading.value = true
   try {
-    const res = await axios.get('http://localhost:8080/recipe/mylist', {
+    const res = await axios.get('/api/recipe/mylist', {
       params: {
         user_id: TEMP_USER_ID,
         page: targetPage,

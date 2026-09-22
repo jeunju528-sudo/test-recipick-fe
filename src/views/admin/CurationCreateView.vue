@@ -118,7 +118,7 @@ onMounted(async () => {
     if(!isEdit.value) return // 생성모드면 아무것도 안함
     isInitializing.value = true
     try {
-      const response = await axios.get(`http://localhost:8080/admin/curation/${curationId}`) // 수정할 데이터 가지고 오기
+      const response = await axios.get(`/api/admin/curation/${curationId}`) // 수정할 데이터 가지고 오기
       const data = response.data
       form.title = data.title
       form.year = data.year
@@ -163,7 +163,7 @@ async function handleGenerate() {
   selected.value = []
   preview.value = []
   try {
-    const response = await axios.get('http://localhost:8080/admin/curation/recommend',{
+    const response = await axios.get('/api/admin/curation/recommend',{
       params:{
         year:form.year,
         month:form.month,
@@ -213,7 +213,7 @@ watch(
     const rawArray = toRaw(val);
     
     try {
-      const response = await axios.get('http://localhost:8080/admin/curation/recipeTop3',{
+      const response = await axios.get('/api/admin/curation/recipeTop3',{
         params:{
           ids: rawArray.join(',')
         }
@@ -243,7 +243,7 @@ watch(
       titleError.value = false
       loading.value = true
       try {
-        const title = await axios.get('http://localhost:8080/admin/curation/title/recommend',{
+        const title = await axios.get('/api/admin/curation/title/recommend',{
           params:{
             month:form.month,
             ids: names.join(',')
@@ -295,10 +295,10 @@ async function handleSave() {
   try {
     const payload = buildPayload()
     if(isEdit.value) { // 수정
-      await axios.put(`http://localhost:8080/admin/curation/${curationId}`, payload)
+      await axios.put(`/api/admin/curation/${curationId}`, payload)
     }
     else {
-      await axios.post('http://localhost:8080/admin/curation', payload)
+      await axios.post('/api/admin/curation', payload)
     }
     router.push('/admin/curations')
   } catch (error) {
