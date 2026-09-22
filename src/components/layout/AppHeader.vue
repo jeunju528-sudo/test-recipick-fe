@@ -139,7 +139,6 @@ const navItems = [
       { label: '큐레이션', to: '/community/curations' },
     ],
   },
-  { label: '스타일가이드', to: '/styleguide' },
 ]
 
 const menuOpen = ref(false)   // 프로필 드롭다운
