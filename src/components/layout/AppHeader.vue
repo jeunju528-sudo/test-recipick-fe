@@ -130,7 +130,7 @@ const router = useRouter()
 const navItems = [
   { label: '레시피 조회', to: '/recipes' },
   { label: '냉장고 파먹기!', to: '/fridge' },
-  { label: '식단관리', to: '/meal-plan' },
+  { label: '식단표 관리', to: '/meal-plan' },
   {
     label: '커뮤니티',
     to: '/community',
