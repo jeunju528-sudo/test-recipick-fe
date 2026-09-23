@@ -128,7 +128,7 @@ const router = useRouter()
 
 // 주 메뉴 (한 곳에서 관리 → 마크업 중복 없음)
 const navItems = [
-  { label: '레시피 조회', to: '/recipes' },
+  { label: '레시피', to: '/recipes' },
   { label: '냉장고 파먹기!', to: '/fridge' },
   { label: '식단표 관리', to: '/meal-plan' },
   {
